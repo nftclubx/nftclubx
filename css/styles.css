@@ -893,29 +893,62 @@ ul {
     }
 
     /* Calculator responsive */
+    .calculator-card {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .calculator-table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
     .calculator-table th,
     .calculator-table td {
-        padding: 12px 8px;
-        font-size: 0.85rem;
+        padding: 8px 3px;
+        font-size: 0.65rem;
+    }
+
+    .calculator-table th {
+        font-size: 0.55rem;
+        letter-spacing: 0;
     }
 
     .volume-input {
-        width: 90px;
-        padding: 8px 10px;
-        font-size: 0.9rem;
+        width: 50px;
+        padding: 6px 4px;
+        font-size: 0.7rem;
     }
 
     .commission-badge {
-        padding: 4px 10px;
-        font-size: 0.75rem;
+        padding: 3px 6px;
+        font-size: 0.6rem;
     }
 
     .level-label {
-        font-size: 0.9rem;
+        font-size: 0.65rem;
     }
 
-    .calculator-card {
-        padding: 15px;
+    .level-note {
+        font-size: 0.5rem;
+    }
+
+    .profit-cell,
+    .earnings-cell {
+        font-size: 0.65rem;
+    }
+
+    .earnings-cell {
+        font-size: 0.7rem;
+    }
+
+    .total-row td {
+        padding: 10px 3px;
+    }
+
+    .total-row .profit-cell.total,
+    .total-row .earnings-cell.total {
+        font-size: 0.8rem;
     }
 
     .referral-grid {
