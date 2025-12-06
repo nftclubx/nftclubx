@@ -49,3 +49,62 @@ revealElements.forEach(el => {
 });
 
 window.addEventListener('scroll', revealOnScroll);
+
+// Earnings Calculator
+const commissions = {
+    1: 0.25,    // 25%
+    2: 0.10,    // 10%
+    3: 0.10,    // 10%
+    4: 0.05,    // 5%
+    5: 0.049,   // 4.9%
+    6: 0.041    // 4.1% each for levels 6-16
+};
+
+function calculateEarnings() {
+    let totalProfit = 0;
+    let totalEarn = 0;
+
+    // Calculate for levels 1-5
+    for (let i = 1; i <= 5; i++) {
+        const volInput = document.getElementById(`vol${i}`);
+        if (volInput) {
+            const volume = parseFloat(volInput.value) || 0;
+            const profit = volume * 0.01; // 1% profit
+            const earnings = profit * commissions[i];
+
+            document.getElementById(`profit${i}`).textContent = profit.toFixed(2);
+            document.getElementById(`earn${i}`).textContent = earnings.toFixed(2);
+
+            totalProfit += profit;
+            totalEarn += earnings;
+        }
+    }
+
+    // Calculate for levels 6-16 (11 levels × 4.1% each)
+    const vol6Input = document.getElementById('vol6');
+    if (vol6Input) {
+        const volume = parseFloat(vol6Input.value) || 0;
+        const profitPerLevel = volume * 0.01; // 1% profit per level
+        const totalProfitLevels6to16 = profitPerLevel * 11; // 11 levels
+        const earningsPerLevel = profitPerLevel * commissions[6];
+        const totalEarningsLevels6to16 = earningsPerLevel * 11;
+
+        document.getElementById('profit6').textContent = totalProfitLevels6to16.toFixed(2);
+        document.getElementById('earn6').textContent = totalEarningsLevels6to16.toFixed(2);
+
+        totalProfit += totalProfitLevels6to16;
+        totalEarn += totalEarningsLevels6to16;
+    }
+
+    // Update totals
+    document.getElementById('totalProfit').textContent = totalProfit.toFixed(2);
+    document.getElementById('totalEarn').textContent = totalEarn.toFixed(2);
+}
+
+// Add event listeners to all volume inputs
+document.querySelectorAll('.volume-input').forEach(input => {
+    input.addEventListener('input', calculateEarnings);
+});
+
+// Initial calculation on page load
+document.addEventListener('DOMContentLoaded', calculateEarnings);

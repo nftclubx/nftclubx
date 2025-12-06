@@ -490,6 +490,187 @@ ul {
     border-bottom: none;
 }
 
+/* Earnings Calculator */
+.calculator-section {
+    background: linear-gradient(180deg, rgba(0, 243, 255, 0.02) 0%, transparent 100%);
+}
+
+.calculator-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.calculator-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    overflow-x: auto;
+}
+
+.calculator-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calculator-table th,
+.calculator-table td {
+    padding: 16px 12px;
+    text-align: center;
+}
+
+.calculator-table thead th {
+    background: rgba(0, 243, 255, 0.05);
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.calculator-table thead th:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.calculator-table thead th:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+.level-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.3s ease;
+}
+
+.level-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.level-row.main-row {
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.08), transparent);
+}
+
+.level-row.multi-row {
+    background: linear-gradient(90deg, rgba(188, 19, 254, 0.08), transparent);
+}
+
+.level-label {
+    font-weight: 600;
+    color: #fff;
+}
+
+.level-note {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.volume-input {
+    width: 120px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    text-align: center;
+    transition: all 0.3s ease;
+    -moz-appearance: textfield;
+}
+
+.volume-input::-webkit-outer-spin-button,
+.volume-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.volume-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+    background: rgba(0, 243, 255, 0.05);
+}
+
+.volume-input::placeholder {
+    color: var(--text-muted);
+}
+
+.profit-cell {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.profit-cell::before {
+    content: '$';
+}
+
+.commission-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.commission-badge.high {
+    background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(188, 19, 254, 0.2));
+    color: var(--primary);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+}
+
+.earnings-cell {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #4ade80;
+}
+
+.earnings-cell::before {
+    content: '$';
+}
+
+.total-row {
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), rgba(188, 19, 254, 0.1));
+}
+
+.total-row td {
+    padding: 20px 12px;
+}
+
+.total-row .profit-cell.total,
+.total-row .earnings-cell.total {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.calculator-info {
+    margin-top: 24px;
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(0, 243, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.info-box i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.info-box p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
 /* Referral */
 .referral-grid {
     display: grid;
@@ -650,5 +831,35 @@ ul {
 
     .social-icons {
         justify-content: center;
+    }
+
+    /* Calculator responsive */
+    .calculator-table th,
+    .calculator-table td {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+
+    .volume-input {
+        width: 90px;
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .commission-badge {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+
+    .level-label {
+        font-size: 0.9rem;
+    }
+
+    .calculator-card {
+        padding: 15px;
+    }
+
+    .referral-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
