@@ -284,95 +284,11 @@
                 <div class="container">
                     <div class="section-header text-center">
                         <h2>Earnings <span class="gradient-text">Calculator</span></h2>
-                        <p>See how much you can earn from your referral network.</p>
-                    </div>
-
-                    <div class="calculator-container">
-                        <div class="calculator-card">
-                            <table class="calculator-table">
-                                <thead>
-                                    <tr>
-                                        <th>Level</th>
-                                        <th>Trade Volume (USDT)</th>
-                                        <th>Profit (1%)</th>
-                                        <th>Commission %</th>
-                                        <th>Your Earnings</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="level-row main-row">
-                                        <td><span class="level-label">Level 1</span></td>
-                                        <td><input type="number" id="vol1" class="volume-input" placeholder="1000"
-                                                value="1000"></td>
-                                        <td class="profit-cell" id="profit1">10.00</td>
-                                        <td><span class="commission-badge high">25%</span></td>
-                                        <td class="earnings-cell" id="earn1">2.50</td>
-                                    </tr>
-                                    <tr class="level-row">
-                                        <td><span class="level-label">Level 2</span></td>
-                                        <td><input type="number" id="vol2" class="volume-input" placeholder="1000"
-                                                value="1000"></td>
-                                        <td class="profit-cell" id="profit2">10.00</td>
-                                        <td><span class="commission-badge">10%</span></td>
-                                        <td class="earnings-cell" id="earn2">1.00</td>
-                                    </tr>
-                                    <tr class="level-row">
-                                        <td><span class="level-label">Level 3</span></td>
-                                        <td><input type="number" id="vol3" class="volume-input" placeholder="1000"
-                                                value="1000"></td>
-                                        <td class="profit-cell" id="profit3">10.00</td>
-                                        <td><span class="commission-badge">10%</span></td>
-                                        <td class="earnings-cell" id="earn3">1.00</td>
-                                    </tr>
-                                    <tr class="level-row">
-                                        <td><span class="level-label">Level 4</span></td>
-                                        <td><input type="number" id="vol4" class="volume-input" placeholder="1000"
-                                                value="1000"></td>
-                                        <td class="profit-cell" id="profit4">10.00</td>
-                                        <td><span class="commission-badge">5%</span></td>
-                                        <td class="earnings-cell" id="earn4">0.50</td>
-                                    </tr>
-                                    <tr class="level-row">
-                                        <td><span class="level-label">Level 5</span></td>
-                                        <td><input type="number" id="vol5" class="volume-input" placeholder="1000"
-                                                value="1000"></td>
-                                        <td class="profit-cell" id="profit5">10.00</td>
-                                        <td><span class="commission-badge">4.9%</span></td>
-                                        <td class="earnings-cell" id="earn5">0.49</td>
-                                    </tr>
-                                    <tr class="level-row multi-row">
-                                        <td><span class="level-label">Level 6-16</span><small class="level-note">×11
-                                                levels</small></td>
-                                        <td><input type="number" id="vol6" class="volume-input" placeholder="1000"
-                                                value="1000"></td>
-                                        <td class="profit-cell" id="profit6">110.00</td>
-                                        <td><span class="commission-badge">4.1% each</span></td>
-                                        <td class="earnings-cell" id="earn6">4.51</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr class="total-row">
-                                        <td colspan="2"><strong>Total Earnings</strong></td>
-                                        <td class="profit-cell total" id="totalProfit">160.00</td>
-                                        <td></td>
-                                        <td class="earnings-cell total" id="totalEarn">10.00</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-
-                        <div class="calculator-info">
-                            <div class="info-box">
-                                <i class="fas fa-info-circle"></i>
-                                <p><strong>How it works:</strong> Enter the trade volume for each referral level. Profit
-                                    is 1% of trade volume, and your commission is calculated based on your referral
-                                    level percentage.</p>
-                            </div>
-                        </div>
+                        <p>Calculate your trading profits and referral earnings.</p>
                     </div>
 
                     <!-- Trade Profit Compounding Calculator -->
-                    <div class="compounding-calculator">
+                    <div class="compounding-calculator" style="margin-top: 0; margin-bottom: 50px;">
                         <h3 class="calculator-subtitle">Trade Profit <span class="gradient-text">Compounding</span></h3>
                         <p class="calculator-desc">See how your daily 1% profits compound over time.</p>
 
@@ -405,6 +321,98 @@
                                 <div class="result-item">
                                     <span class="result-label">Extra Earnings from Compounding</span>
                                     <span class="result-value bonus-value" id="compoundBonus">+$47.85</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Referral Earning Calculator -->
+                    <div class="referral-calculator">
+                        <h3 class="calculator-subtitle">Referral <span class="gradient-text">Earning Calculator</span>
+                        </h3>
+                        <p class="calculator-desc">See how much you can earn from your referral network.</p>
+
+                        <div class="calculator-container">
+                            <div class="calculator-card">
+                                <table class="calculator-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Trade Volume (USDT)</th>
+                                            <th>Profit (1%)</th>
+                                            <th>Commission %</th>
+                                            <th>Your Earnings</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="level-row main-row">
+                                            <td><span class="level-label">Level 1</span></td>
+                                            <td><input type="number" id="vol1" class="volume-input" placeholder="1000"
+                                                    value="1000"></td>
+                                            <td class="profit-cell" id="profit1">10.00</td>
+                                            <td><span class="commission-badge high">25%</span></td>
+                                            <td class="earnings-cell" id="earn1">2.50</td>
+                                        </tr>
+                                        <tr class="level-row">
+                                            <td><span class="level-label">Level 2</span></td>
+                                            <td><input type="number" id="vol2" class="volume-input" placeholder="1000"
+                                                    value="1000"></td>
+                                            <td class="profit-cell" id="profit2">10.00</td>
+                                            <td><span class="commission-badge">10%</span></td>
+                                            <td class="earnings-cell" id="earn2">1.00</td>
+                                        </tr>
+                                        <tr class="level-row">
+                                            <td><span class="level-label">Level 3</span></td>
+                                            <td><input type="number" id="vol3" class="volume-input" placeholder="1000"
+                                                    value="1000"></td>
+                                            <td class="profit-cell" id="profit3">10.00</td>
+                                            <td><span class="commission-badge">10%</span></td>
+                                            <td class="earnings-cell" id="earn3">1.00</td>
+                                        </tr>
+                                        <tr class="level-row">
+                                            <td><span class="level-label">Level 4</span></td>
+                                            <td><input type="number" id="vol4" class="volume-input" placeholder="1000"
+                                                    value="1000"></td>
+                                            <td class="profit-cell" id="profit4">10.00</td>
+                                            <td><span class="commission-badge">5%</span></td>
+                                            <td class="earnings-cell" id="earn4">0.50</td>
+                                        </tr>
+                                        <tr class="level-row">
+                                            <td><span class="level-label">Level 5</span></td>
+                                            <td><input type="number" id="vol5" class="volume-input" placeholder="1000"
+                                                    value="1000"></td>
+                                            <td class="profit-cell" id="profit5">10.00</td>
+                                            <td><span class="commission-badge">4.9%</span></td>
+                                            <td class="earnings-cell" id="earn5">0.49</td>
+                                        </tr>
+                                        <tr class="level-row multi-row">
+                                            <td><span class="level-label">Level 6-16</span><small class="level-note">×11
+                                                    levels</small></td>
+                                            <td><input type="number" id="vol6" class="volume-input" placeholder="1000"
+                                                    value="1000"></td>
+                                            <td class="profit-cell" id="profit6">110.00</td>
+                                            <td><span class="commission-badge">4.1% each</span></td>
+                                            <td class="earnings-cell" id="earn6">4.51</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="total-row">
+                                            <td colspan="2"><strong>Total Earnings</strong></td>
+                                            <td class="profit-cell total" id="totalProfit">160.00</td>
+                                            <td></td>
+                                            <td class="earnings-cell total" id="totalEarn">10.00</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <div class="calculator-info">
+                                <div class="info-box">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p><strong>How it works:</strong> Enter the trade volume for each referral level.
+                                        Profit
+                                        is 1% of trade volume, and your commission is calculated based on your referral
+                                        level percentage.</p>
                                 </div>
                             </div>
                         </div>
