@@ -695,6 +695,93 @@ ul {
     line-height: 1.6;
 }
 
+/* Compounding Calculator */
+.compounding-calculator {
+    margin-top: 50px;
+}
+
+.calculator-subtitle {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.calculator-desc {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.compounding-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.compounding-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.input-group .volume-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+}
+
+.compounding-results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.result-item.highlight-result {
+    background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(188, 19, 254, 0.1));
+    border-color: rgba(0, 243, 255, 0.3);
+}
+
+.result-label {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.result-value {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.result-value.compound-value {
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+.result-value.bonus-value {
+    color: #4ade80;
+}
+
 /* Referral */
 .referral-grid {
     display: grid;
@@ -949,6 +1036,54 @@ ul {
     .total-row .profit-cell.total,
     .total-row .earnings-cell.total {
         font-size: 0.8rem;
+    }
+
+    /* Section headers on mobile */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-header p {
+        font-size: 0.9rem;
+    }
+
+    /* Compounding calculator on mobile */
+    .compounding-calculator {
+        margin-top: 30px;
+    }
+
+    .calculator-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .calculator-desc {
+        font-size: 0.85rem;
+    }
+
+    .compounding-inputs {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .input-group .volume-input {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+
+    .result-item {
+        padding: 12px 15px;
+    }
+
+    .result-label {
+        font-size: 0.8rem;
+    }
+
+    .result-value {
+        font-size: 1rem;
+    }
+
+    .result-value.compound-value {
+        font-size: 1.1rem;
     }
 
     .referral-grid {

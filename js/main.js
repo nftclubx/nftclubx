@@ -125,10 +125,48 @@ function calculateEarnings() {
     document.getElementById('totalEarn').textContent = totalEarn.toFixed(2);
 }
 
-// Add event listeners to all volume inputs
-document.querySelectorAll('.volume-input').forEach(input => {
+// Add event listeners to all volume inputs for referral calculator
+document.querySelectorAll('.calculator-table .volume-input').forEach(input => {
     input.addEventListener('input', calculateEarnings);
 });
 
 // Initial calculation on page load
 document.addEventListener('DOMContentLoaded', calculateEarnings);
+
+// Compounding Calculator
+function calculateCompounding() {
+    const volumeInput = document.getElementById('tradeVolume');
+    const daysInput = document.getElementById('tradeDays');
+
+    if (!volumeInput || !daysInput) return;
+
+    const volume = parseFloat(volumeInput.value) || 0;
+    const days = parseInt(daysInput.value) || 0;
+
+    // Daily profit is 1% of trade volume
+    const dailyProfitRate = 0.01;
+    const dailyProfit = volume * dailyProfitRate;
+
+    // Simple total (no compounding): daily profit × days
+    const simpleTotal = dailyProfit * days;
+
+    // Compound total: volume × (1 + rate)^days - volume
+    // This assumes you reinvest your profit each day
+    const compoundTotal = volume * (Math.pow(1 + dailyProfitRate, days) - 1);
+
+    // Bonus from compounding
+    const compoundBonus = compoundTotal - simpleTotal;
+
+    // Update display
+    document.getElementById('dailyProfit').textContent = '$' + dailyProfit.toFixed(2);
+    document.getElementById('simpleTotal').textContent = '$' + simpleTotal.toFixed(2);
+    document.getElementById('compoundTotal').textContent = '$' + compoundTotal.toFixed(2);
+    document.getElementById('compoundBonus').textContent = '+$' + compoundBonus.toFixed(2);
+}
+
+// Add event listeners for compounding calculator
+document.getElementById('tradeVolume')?.addEventListener('input', calculateCompounding);
+document.getElementById('tradeDays')?.addEventListener('input', calculateCompounding);
+
+// Initial calculation on page load
+document.addEventListener('DOMContentLoaded', calculateCompounding);

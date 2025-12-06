@@ -370,6 +370,45 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Trade Profit Compounding Calculator -->
+                    <div class="compounding-calculator">
+                        <h3 class="calculator-subtitle">Trade Profit <span class="gradient-text">Compounding</span></h3>
+                        <p class="calculator-desc">See how your daily 1% profits compound over time.</p>
+
+                        <div class="calculator-card compounding-card">
+                            <div class="compounding-inputs">
+                                <div class="input-group">
+                                    <label for="tradeVolume">Trade Volume (USDT)</label>
+                                    <input type="number" id="tradeVolume" class="volume-input" value="1000" min="1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="tradeDays">Number of Days</label>
+                                    <input type="number" id="tradeDays" class="volume-input" value="30" min="1"
+                                        max="365">
+                                </div>
+                            </div>
+
+                            <div class="compounding-results">
+                                <div class="result-item">
+                                    <span class="result-label">Daily Profit (1%)</span>
+                                    <span class="result-value" id="dailyProfit">$10.00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Total Without Compounding</span>
+                                    <span class="result-value" id="simpleTotal">$300.00</span>
+                                </div>
+                                <div class="result-item highlight-result">
+                                    <span class="result-label">Total With Compounding</span>
+                                    <span class="result-value compound-value" id="compoundTotal">$347.85</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Extra Earnings from Compounding</span>
+                                    <span class="result-value bonus-value" id="compoundBonus">+$47.85</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
