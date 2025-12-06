@@ -629,6 +629,15 @@ ul {
     content: '$';
 }
 
+.volume-display {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.volume-display::before {
+    content: '$';
+}
+
 .commission-badge {
     display: inline-block;
     padding: 6px 14px;

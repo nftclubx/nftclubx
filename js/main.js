@@ -74,7 +74,7 @@ revealElements.forEach(el => {
 
 window.addEventListener('scroll', revealOnScroll);
 
-// Earnings Calculator
+// Referral Earnings Calculator
 const commissions = {
     1: 0.25,    // 25%
     2: 0.10,    // 10%
@@ -84,54 +84,65 @@ const commissions = {
     6: 0.041    // 4.1% each for levels 6-16
 };
 
-function calculateEarnings() {
-    let totalProfit = 0;
+function formatNumber(num) {
+    return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function calculateReferralEarnings() {
+    const refCountInput = document.getElementById('refCount');
+    const refTradeInput = document.getElementById('refTrade');
+    const refPerPersonInput = document.getElementById('refPerPerson');
+
+    if (!refCountInput || !refTradeInput || !refPerPersonInput) return;
+
+    const refCount = parseInt(refCountInput.value) || 0;
+    const tradeAmount = parseFloat(refTradeInput.value) || 0;
+    const refPerPerson = parseInt(refPerPersonInput.value) || 1;
+
     let totalEarn = 0;
+    let currentPeople = refCount;
 
     // Calculate for levels 1-5
     for (let i = 1; i <= 5; i++) {
-        const volInput = document.getElementById(`vol${i}`);
-        if (volInput) {
-            const volume = parseFloat(volInput.value) || 0;
-            const profit = volume * 0.01; // 1% profit
-            const earnings = profit * commissions[i];
+        const volume = currentPeople * tradeAmount;
+        const profit = volume * 0.01; // 1% profit from trades
+        const earnings = profit * commissions[i];
 
-            document.getElementById(`profit${i}`).textContent = profit.toFixed(2);
-            document.getElementById(`earn${i}`).textContent = earnings.toFixed(2);
+        document.getElementById(`vol${i}`).textContent = formatNumber(volume);
+        document.getElementById(`earn${i}`).textContent = formatNumber(earnings);
 
-            totalProfit += profit;
-            totalEarn += earnings;
-        }
+        totalEarn += earnings;
+        currentPeople = currentPeople * refPerPerson; // Multiply for next level
     }
 
     // Calculate for levels 6-16 (11 levels × 4.1% each)
-    const vol6Input = document.getElementById('vol6');
-    if (vol6Input) {
-        const volume = parseFloat(vol6Input.value) || 0;
-        const profitPerLevel = volume * 0.01; // 1% profit per level
-        const totalProfitLevels6to16 = profitPerLevel * 11; // 11 levels
-        const earningsPerLevel = profitPerLevel * commissions[6];
-        const totalEarningsLevels6to16 = earningsPerLevel * 11;
+    let level6to16Total = 0;
+    let level6to16Volume = 0;
+    for (let i = 6; i <= 16; i++) {
+        const volume = currentPeople * tradeAmount;
+        const profit = volume * 0.01;
+        const earnings = profit * commissions[6];
 
-        document.getElementById('profit6').textContent = totalProfitLevels6to16.toFixed(2);
-        document.getElementById('earn6').textContent = totalEarningsLevels6to16.toFixed(2);
-
-        totalProfit += totalProfitLevels6to16;
-        totalEarn += totalEarningsLevels6to16;
+        level6to16Total += earnings;
+        level6to16Volume += volume;
+        currentPeople = currentPeople * refPerPerson;
     }
 
-    // Update totals
-    document.getElementById('totalProfit').textContent = totalProfit.toFixed(2);
-    document.getElementById('totalEarn').textContent = totalEarn.toFixed(2);
+    document.getElementById('vol6').textContent = formatNumber(level6to16Volume);
+    document.getElementById('earn6').textContent = formatNumber(level6to16Total);
+    totalEarn += level6to16Total;
+
+    // Update total
+    document.getElementById('totalEarn').textContent = formatNumber(totalEarn);
 }
 
-// Add event listeners to all volume inputs for referral calculator
-document.querySelectorAll('.calculator-table .volume-input').forEach(input => {
-    input.addEventListener('input', calculateEarnings);
-});
+// Add event listeners to referral calculator inputs
+document.getElementById('refCount')?.addEventListener('input', calculateReferralEarnings);
+document.getElementById('refTrade')?.addEventListener('input', calculateReferralEarnings);
+document.getElementById('refPerPerson')?.addEventListener('input', calculateReferralEarnings);
 
 // Initial calculation on page load
-document.addEventListener('DOMContentLoaded', calculateEarnings);
+document.addEventListener('DOMContentLoaded', calculateReferralEarnings);
 
 // Compounding Calculator
 function calculateCompounding() {

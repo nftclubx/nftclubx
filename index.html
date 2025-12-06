@@ -327,80 +327,86 @@
                     </div>
 
                     <!-- Referral Earning Calculator -->
+                    <!-- Referral Earning Calculator -->
                     <div class="referral-calculator">
                         <h3 class="calculator-subtitle">Referral <span class="gradient-text">Earning Calculator</span>
                         </h3>
                         <p class="calculator-desc">See how much you can earn from your referral network.</p>
 
+                        <!-- Referral Input Controls -->
+                        <div class="calculator-card" style="max-width: 600px; margin: 0 auto 30px auto;">
+                            <div class="compounding-inputs" style="grid-template-columns: repeat(3, 1fr);">
+                                <div class="input-group">
+                                    <label for="refCount">Your Referrals (Level 1)</label>
+                                    <input type="number" id="refCount" class="volume-input" value="5" min="1" max="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="refTrade">Trade Amount (USDT)</label>
+                                    <input type="number" id="refTrade" class="volume-input" value="1000" min="1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="refPerPerson">Referrals per Person</label>
+                                    <input type="number" id="refPerPerson" class="volume-input" value="5" min="1"
+                                        max="20">
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="calculator-container">
                             <div class="calculator-card">
-                                <table class="calculator-table">
+                                <table class="calculator-table referral-table">
                                     <thead>
                                         <tr>
                                             <th>Level</th>
-                                            <th>Trade Volume (USDT)</th>
-                                            <th>Profit (1%)</th>
-                                            <th>Commission %</th>
+                                            <th>Total Volume</th>
+                                            <th>Commission</th>
                                             <th>Your Earnings</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="level-row main-row">
                                             <td><span class="level-label">Level 1</span></td>
-                                            <td><input type="number" id="vol1" class="volume-input" placeholder="1000"
-                                                    value="1000"></td>
-                                            <td class="profit-cell" id="profit1">10.00</td>
+                                            <td class="volume-display" id="vol1">5,000</td>
                                             <td><span class="commission-badge high">25%</span></td>
-                                            <td class="earnings-cell" id="earn1">2.50</td>
+                                            <td class="earnings-cell" id="earn1">12.50</td>
                                         </tr>
                                         <tr class="level-row">
                                             <td><span class="level-label">Level 2</span></td>
-                                            <td><input type="number" id="vol2" class="volume-input" placeholder="1000"
-                                                    value="1000"></td>
-                                            <td class="profit-cell" id="profit2">10.00</td>
+                                            <td class="volume-display" id="vol2">25,000</td>
                                             <td><span class="commission-badge">10%</span></td>
-                                            <td class="earnings-cell" id="earn2">1.00</td>
+                                            <td class="earnings-cell" id="earn2">25.00</td>
                                         </tr>
                                         <tr class="level-row">
                                             <td><span class="level-label">Level 3</span></td>
-                                            <td><input type="number" id="vol3" class="volume-input" placeholder="1000"
-                                                    value="1000"></td>
-                                            <td class="profit-cell" id="profit3">10.00</td>
+                                            <td class="volume-display" id="vol3">125,000</td>
                                             <td><span class="commission-badge">10%</span></td>
-                                            <td class="earnings-cell" id="earn3">1.00</td>
+                                            <td class="earnings-cell" id="earn3">125.00</td>
                                         </tr>
                                         <tr class="level-row">
                                             <td><span class="level-label">Level 4</span></td>
-                                            <td><input type="number" id="vol4" class="volume-input" placeholder="1000"
-                                                    value="1000"></td>
-                                            <td class="profit-cell" id="profit4">10.00</td>
+                                            <td class="volume-display" id="vol4">625,000</td>
                                             <td><span class="commission-badge">5%</span></td>
-                                            <td class="earnings-cell" id="earn4">0.50</td>
+                                            <td class="earnings-cell" id="earn4">312.50</td>
                                         </tr>
                                         <tr class="level-row">
                                             <td><span class="level-label">Level 5</span></td>
-                                            <td><input type="number" id="vol5" class="volume-input" placeholder="1000"
-                                                    value="1000"></td>
-                                            <td class="profit-cell" id="profit5">10.00</td>
+                                            <td class="volume-display" id="vol5">3,125,000</td>
                                             <td><span class="commission-badge">4.9%</span></td>
-                                            <td class="earnings-cell" id="earn5">0.49</td>
+                                            <td class="earnings-cell" id="earn5">1,531.25</td>
                                         </tr>
                                         <tr class="level-row multi-row">
                                             <td><span class="level-label">Level 6-16</span><small class="level-note">×11
                                                     levels</small></td>
-                                            <td><input type="number" id="vol6" class="volume-input" placeholder="1000"
-                                                    value="1000"></td>
-                                            <td class="profit-cell" id="profit6">110.00</td>
-                                            <td><span class="commission-badge">4.1% each</span></td>
-                                            <td class="earnings-cell" id="earn6">4.51</td>
+                                            <td class="volume-display" id="vol6">-</td>
+                                            <td><span class="commission-badge">4.1%</span></td>
+                                            <td class="earnings-cell" id="earn6">-</td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr class="total-row">
                                             <td colspan="2"><strong>Total Earnings</strong></td>
-                                            <td class="profit-cell total" id="totalProfit">160.00</td>
                                             <td></td>
-                                            <td class="earnings-cell total" id="totalEarn">10.00</td>
+                                            <td class="earnings-cell total" id="totalEarn">0.00</td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -409,10 +415,9 @@
                             <div class="calculator-info">
                                 <div class="info-box">
                                     <i class="fas fa-info-circle"></i>
-                                    <p><strong>How it works:</strong> Enter the trade volume for each referral level.
-                                        Profit
-                                        is 1% of trade volume, and your commission is calculated based on your referral
-                                        level percentage.</p>
+                                    <p><strong>How it works:</strong> Each level's volume = people × trade amount.
+                                        People grow by your "Referrals per Person" each level. Your commission is
+                                        calculated from 1% profit of each trade.</p>
                                 </div>
                             </div>
                         </div>
