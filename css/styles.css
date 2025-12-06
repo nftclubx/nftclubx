@@ -353,6 +353,14 @@ ul {
     border: 1px solid var(--border-color);
 }
 
+.feature-box h3 {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
 .highlight-box {
     background: linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(188, 19, 254, 0.05));
     border-color: rgba(0, 243, 255, 0.2);
@@ -377,6 +385,14 @@ ul {
     border-radius: 20px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
+}
+
+.feature-card h3 {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
 }
 
 .feature-card:hover {
@@ -479,6 +495,14 @@ ul {
     padding: 40px;
     border-radius: 20px;
     border: 1px solid var(--border-color);
+}
+
+.info-card h3 {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
 }
 
 .styled-list li {
